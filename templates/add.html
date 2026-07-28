@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Scholarship - ScholarshipBridge</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🎓 ScholarshipBridge</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/scholarships">Scholarships</a>
+        <a href="/admin">Admin</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>Add Scholarship</h1>
+
+    <form method="POST">
+
+        <label>Scholarship Name</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Country</label><br>
+        <input type="text" name="country" required><br><br>
+
+        <label>Field of Study</label><br>
+        <input type="text" name="field" required><br><br>
+
+        <label>Degree Level</label><br>
+        <input type="text" name="degree" required><br><br>
+
+        <label>Application Deadline</label><br>
+        <input type="text"
+               name="deadline"
+               placeholder="Example: 31 December 2026"
+               required><br><br>
+
+        <label>Status</label><br>
+
+        <select name="status" required>
+            <option value="Open">🟢 Open</option>
+            <option value="Closed">🔴 Closed</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit" class="btn">
+            Add Scholarship
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/admin" class="btn">
+        ← Back to Admin
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}ScholarshipBridge{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+<nav class="navbar">
+
+    <a href="{{ url_for('home') }}" class="logo">
+        <i class="fas fa-graduation-cap"></i>
+        ScholarshipBridge
+    </a>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                <i class="fas fa-house"></i>
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('scholarships') }}">
+                <i class="fas fa-globe"></i>
+                Scholarships
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                <i class="fas fa-circle-info"></i>
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('apply') }}">
+                <i class="fas fa-file-signature"></i>
+                Apply
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('login') }}" class="login-btn">
+                <i class="fas fa-user-shield"></i>
+                Admin
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+</header>
+
+<!-- ================= MAIN ================= -->
+
+<main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+
+<div class="container">
+
+{% for category, message in messages %}
+
+<div class="flash {{ category }}">
+    {{ message }}
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+{% endwith %}
+
+{% block content %}
+
+{% endblock %}
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-container">
+
+<div>
+
+<h3>
+<i class="fas fa-graduation-cap"></i>
+ScholarshipBridge
+</h3>
+
+<p>
+Helping students discover verified scholarships from universities around the world.
+</p>
+
+</div>
+
+<div>
+
+<h4>Quick Links</h4>
+
+<a href="{{ url_for('home') }}">Home</a>
+
+<a href="{{ url_for('scholarships') }}">Scholarships</a>
+
+<a href="{{ url_for('about') }}">About</a>
+
+<a href="{{ url_for('apply') }}">Apply</a>
+
+</div>
+
+<div>
+
+<h4>Contact</h4>
+
+<p>
+<i class="fas fa-envelope"></i>
+decent@scholarshipbridge.com
+</p>
+
+<p>
+<i class="fas fa-globe"></i>
+Worldwide Access
+</p>
+
+<p>
+<i class="fas fa-clock"></i>
+Available 24/7
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 ScholarshipBridge • Designed with ❤️ using Flask
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

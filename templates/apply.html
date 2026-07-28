@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Apply - ScholarshipBridge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🎓 ScholarshipBridge</h2>
+</nav>
+
+<div class="container">
+
+    <h1>Scholarship Application</h1>
+
+    <form method="POST">
+
+        <label>Full Name</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Country</label><br>
+        <input type="text" name="country" required><br><br>
+
+        <label>Why do you deserve this scholarship?</label><br>
+        <textarea name="reason" rows="6" cols="50" required></textarea><br><br>
+
+        <button class="btn">Submit Application</button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

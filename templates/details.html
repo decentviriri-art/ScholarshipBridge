@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ scholarship.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🎓 ScholarshipBridge</h2>
+</nav>
+
+<div class="container">
+
+<h1>{{ scholarship.name }}</h1>
+
+<p><b>Country:</b> {{ scholarship.country }}</p>
+
+<p><b>Field:</b> {{ scholarship.field }}</p>
+
+<p><b>Degree:</b> {{ scholarship.degree }}</p>
+
+<br>
+
+<a href="/scholarships" class="btn">
+Back
+</a>
+
+<a href="/apply" class="btn">
+Apply Now
+</a>
+
+</div>
+
+</body>
+</html>

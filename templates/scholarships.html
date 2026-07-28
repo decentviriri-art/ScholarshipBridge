@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}
+Scholarships
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>Available Scholarships</h1>
+
+    <form method="GET" action="/scholarships" class="search-form">
+
+        <input
+            type="text"
+            name="country"
+            placeholder="🌍 Country"
+            value="{{ request.args.get('country','') }}">
+
+        <input
+            type="text"
+            name="field"
+            placeholder="💻 Field"
+            value="{{ request.args.get('field','') }}">
+
+        <input
+            type="text"
+            name="degree"
+            placeholder="🎓 Degree"
+            value="{{ request.args.get('degree','') }}">
+
+        <select name="status">
+            <option value="">All Status</option>
+
+            <option value="Open"
+                {% if request.args.get('status') == 'Open' %}selected{% endif %}>
+                Open
+            </option>
+
+            <option value="Closed"
+                {% if request.args.get('status') == 'Closed' %}selected{% endif %}>
+                Closed
+            </option>
+
+        </select>
+
+        <button type="submit" class="btn">
+            🔍 Search
+        </button>
+
+    </form>
+
+    {% if scholarships %}
+
+        <div class="cards">
+
+        {% for scholarship in scholarships %}
+
+            <div class="card">
+
+                <h2>{{ scholarship.name }}</h2>
+
+                <p>🌍 <strong>Country:</strong> {{ scholarship.country }}</p>
+
+                <p>💻 <strong>Field:</strong> {{ scholarship.field }}</p>
+
+                <p>🎓 <strong>Degree:</strong> {{ scholarship.degree }}</p>
+
+                <p>📅 <strong>Deadline:</strong> {{ scholarship.deadline }}</p>
+
+                <p>
+
+                    <strong>Status:</strong>
+
+                    {% if scholarship.status == "Open" %}
+                        <span class="open-status">🟢 Open</span>
+                    {% else %}
+                        <span class="closed-status">🔴 Closed</span>
+                    {% endif %}
+
+                </p>
+
+                <div class="buttons">
+
+                    <a href="{{ url_for('details', index=loop.index0) }}" class="btn">
+                        View Details
+                    </a>
+
+                    <a href="/apply" class="btn">
+                        Apply
+                    </a>
+
+                    <a href="{{ url_for('delete', index=loop.index0) }}" class="btn delete-btn">
+                        Delete
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <h2>No scholarships found.</h2>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

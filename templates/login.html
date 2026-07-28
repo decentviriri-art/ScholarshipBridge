@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login{% endblock %}
+
+{% block content %}
+
+<section class="login-page">
+
+    <div class="login-box">
+
+        <div class="login-header">
+
+            <i class="fas fa-user-shield"></i>
+
+            <h1>Admin Login</h1>
+
+            <p>
+                Sign in to manage scholarships.
+            </p>
+
+        </div>
+
+        <form method="POST">
+
+            <label>
+                <i class="fas fa-user"></i>
+                Username
+            </label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter username"
+                required>
+
+            <label>
+                <i class="fas fa-lock"></i>
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required>
+
+            <button type="submit" class="btn">
+
+                <i class="fas fa-right-to-bracket"></i>
+
+                Login
+
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="{{ url_for('home') }}" class="btn">
+
+            <i class="fas fa-house"></i>
+
+            Back Home
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

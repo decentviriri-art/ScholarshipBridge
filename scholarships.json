@@ -1,0 +1,42 @@
+[
+    {
+        "name": "DAAD Scholarship",
+        "country": "Germany",
+        "field": "Data Science",
+        "degree": "Masters",
+        "deadline": "31 December 2026",
+        "status": "Open"
+    },
+    {
+        "name": "Chevening Scholarship",
+        "country": "United Kingdom",
+        "field": "Any",
+        "degree": "Masters",
+        "deadline": "15 November 2026",
+        "status": "Open"
+    },
+    {
+        "name": "Erasmus Mundus",
+        "country": "Europe",
+        "field": "Computer Science",
+        "degree": "Masters",
+        "deadline": "10 January 2027",
+        "status": "Open"
+    },
+    {
+        "name": "MEXT Scholarship",
+        "country": "Japan",
+        "field": "Engineering",
+        "degree": "Masters",
+        "deadline": "25 October 2026",
+        "status": "Closed"
+    },
+    {
+        "name": "DescentViriri Scholarship",
+        "country": "Zimbabwe",
+        "field": "IT",
+        "degree": "BSc",
+        "deadline": "30 June 2027",
+        "status": "Open"
+    }
+]
