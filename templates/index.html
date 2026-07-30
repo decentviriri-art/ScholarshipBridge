@@ -17,7 +17,23 @@
             Start your academic journey today.
         </p>
 
-        <a href="/scholarships" class="btn">
+        <form action="{{ url_for('scholarships') }}" method="GET" class="hero-search">
+
+            <input
+                type="text"
+                name="country"
+                placeholder="Search by country..."
+            >
+
+            <button type="submit" class="btn">
+                🔍 Search
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="{{ url_for('scholarships') }}" class="btn secondary-btn">
             Explore Scholarships
         </a>
 
@@ -30,12 +46,12 @@
 <section class="stats">
 
     <div class="stat">
-        <h2>150+</h2>
+        <h2>{{ total }}+</h2>
         <p>Scholarships</p>
     </div>
 
     <div class="stat">
-        <h2>70+</h2>
+        <h2>{{ countries }}+</h2>
         <p>Countries</p>
     </div>
 
@@ -47,6 +63,36 @@
     <div class="stat">
         <h2>24/7</h2>
         <p>Available</p>
+    </div>
+
+</section>
+
+<section class="container">
+
+    <h1>Featured Scholarships</h1>
+
+    <div class="cards">
+
+        {% for scholarship in scholarships[:3] %}
+
+        <div class="card">
+
+            <h2>{{ scholarship.name }}</h2>
+
+            <p><strong>Country:</strong> {{ scholarship.country }}</p>
+
+            <p><strong>Degree:</strong> {{ scholarship.degree }}</p>
+
+            <p><strong>Deadline:</strong> {{ scholarship.deadline }}</p>
+
+            <a href="{{ url_for('details', index=loop.index0) }}" class="btn">
+                View Details
+            </a>
+
+        </div>
+
+        {% endfor %}
+
     </div>
 
 </section>

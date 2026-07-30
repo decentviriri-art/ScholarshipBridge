@@ -27,7 +27,19 @@ def save_scholarships(data):
 # ===================== HOME =====================
 @app.route("/")
 def home():
-    return render_template("index.html")
+
+    scholarships = load_scholarships()
+
+    total = len(scholarships)
+
+    countries = len(set(s["country"] for s in scholarships))
+
+    return render_template(
+        "index.html",
+        scholarships=scholarships,
+        total=total,
+        countries=countries
+    )
 
 
 # ===================== ABOUT =====================
