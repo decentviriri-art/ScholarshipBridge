@@ -27,49 +27,19 @@
 
 <nav class="navbar">
 
-    <a href="{{ url_for('home') }}" class="logo">
-        <i class="fas fa-graduation-cap"></i>
+    <div class="logo">
         ScholarshipBridge
-    </a>
+    </div>
 
     <ul class="nav-links">
-
-        <li>
-            <a href="{{ url_for('home') }}">
-                <i class="fas fa-house"></i>
-                Home
-            </a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('scholarships') }}">
-                <i class="fas fa-globe"></i>
-                Scholarships
-            </a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('about') }}">
-                <i class="fas fa-circle-info"></i>
-                About
-            </a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('apply') }}">
-                <i class="fas fa-file-signature"></i>
-                Apply
-            </a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('login') }}" class="login-btn">
-                <i class="fas fa-user-shield"></i>
-                Admin
-            </a>
-        </li>
-
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Scholarships</a></li>
+        <li><a href="#">Countries</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
     </ul>
+
+    <a href="#" class="login-btn">Login</a>
 
 </nav>
 
