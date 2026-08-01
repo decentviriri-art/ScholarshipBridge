@@ -25,26 +25,35 @@
 
 <header>
 
-<nav class="navbar">
+<header class="navbar">
 
-   <div class="logo">
-    <a href="{{ url_for('home') }}">ScholarshipBridge</a>
-</div>
+    <div class="logo">
+        <a href="{{ url_for('home') }}">
+            🎓 ScholarshipBridge
+        </a>
+    </div>
 
-   <ul class="nav-links">
-    <li><a href="{{ url_for('home') }}">Home</a></li>
-    <li><a href="{{ url_for('scholarships') }}">Scholarships</a></li>
-    <li><a href="{{ url_for('countries') }}">Countries</a></li>
-    <li><a href="{{ url_for('about') }}">About</a></li>
-    <li><a href="{{ url_for('contact') }}">Contact</a></li>
-    <li><a href="{{ url_for('admin') }}">Admin</a></li>
-</ul>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('scholarships') }}">Scholarships</a></li>
+            <li><a href="{{ url_for('countries') }}">Countries</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
 
-<a href="{{ url_for('login') }}" class="login-btn">Login</a>
+    <div class="nav-buttons">
+        <a href="{{ url_for('login') }}" class="student-btn">
+            Student Login
+        </a>
 
-    <a href="#" class="login-btn">Login</a>
+        <a href="{{ url_for('admin') }}" class="admin-btn">
+            Admin
+        </a>
+    </div>
 
-</nav>
+</header>
 
 </header>
 
