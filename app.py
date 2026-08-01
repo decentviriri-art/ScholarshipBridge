@@ -40,7 +40,14 @@ def home():
         total=total,
         countries=countries
     )
+@app.route("/countries")
+def countries():
+    return render_template("countries.html")
 
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 # ===================== ABOUT =====================
 @app.route("/about")
