@@ -1,22 +1,23 @@
-/* =====================================================
-   ScholarshipBridge v2.0
-   Modern Responsive CSS
-===================================================== */
+/* ==========================================
+   ScholarshipBridge v3.0
+   PART 1
+========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap');
 
 :root{
     --primary:#2563eb;
     --secondary:#14b8a6;
-    --accent:#f59e0b;
+    --success:#16a34a;
+    --warning:#f59e0b;
     --danger:#dc2626;
     --dark:#0f172a;
     --light:#f8fafc;
     --white:#ffffff;
     --gray:#64748b;
     --border:#e2e8f0;
-    --shadow:0 10px 30px rgba(0,0,0,.08);
-    --radius:18px;
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --radius:16px;
 }
 
 *{
@@ -31,12 +32,10 @@ html{
 
 body{
     font-family:'Inter',sans-serif;
-    background:#f8fafc;
-    color:#0f172a;
+    background:var(--light);
+    color:var(--dark);
     line-height:1.7;
 }
-
-/* ================= NAVBAR ================= */
 
 /* ================= NAVBAR ================= */
 
@@ -45,7 +44,7 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:18px 8%;
-    background:#ffffff;
+    background:var(--white);
     box-shadow:0 3px 15px rgba(0,0,0,.08);
     position:sticky;
     top:0;
@@ -56,25 +55,34 @@ body{
     text-decoration:none;
     font-size:30px;
     font-weight:700;
-    color:#2563eb;
+    color:var(--primary);
+}
+
+.logo i{
+    color:var(--warning);
+    margin-right:8px;
 }
 
 .nav-links{
     display:flex;
     list-style:none;
-    gap:30px;
+    gap:32px;
+}
+
+.nav-links li{
+    list-style:none;
 }
 
 .nav-links a{
     text-decoration:none;
     color:#333;
     font-size:17px;
-    font-weight:500;
+    font-weight:600;
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:#2563eb;
+    color:var(--primary);
 }
 
 .nav-buttons{
@@ -82,125 +90,152 @@ body{
     gap:12px;
 }
 
-.student-btn{
-    background:#2563eb;
-    color:white;
-    padding:10px 18px;
-    border-radius:8px;
+.register-btn,
+.student-btn,
+.admin-btn{
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
     text-decoration:none;
+
     font-weight:600;
+
+    transition:.3s;
+
 }
 
-.student-btn:hover{
-    background:#1d4ed8;
+.register-btn{
+
+    background:var(--success);
+
+    color:white;
+
+}
+
+.student-btn{
+
+    background:var(--primary);
+
+    color:white;
+
 }
 
 .admin-btn{
-    border:2px solid #2563eb;
-    color:#2563eb;
-    padding:10px 18px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+}
+
+.register-btn:hover,
+.student-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow);
+
 }
 
 .admin-btn:hover{
-    background:#2563eb;
+
+    background:var(--primary);
+
     color:white;
+
 }
+
 /* ================= HERO ================= */
 
 .hero{
 
-min-height:90vh;
+    min-height:90vh;
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-text-align:center;
+    text-align:center;
 
-padding:40px;
+    padding:40px;
 
-background:
+    background:
+    linear-gradient(rgba(15,23,42,.65),rgba(15,23,42,.65)),
+    url("images/hero2.jpg");
 
-linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
+    background-size:cover;
 
-url("images/hero2.jpg");
+    background-position:center;
 
-background-size:cover;
-
-background-position:center;
-
-background-repeat:no-repeat;
-
-color:white;
+    color:white;
 
 }
 
 .hero-text{
 
-max-width:760px;
+    max-width:760px;
 
 }
 
 .hero h1{
 
-font-size:4rem;
+    font-size:4rem;
 
-margin-bottom:20px;
+    font-family:'Poppins',sans-serif;
 
-font-family:'Poppins',sans-serif;
+    margin-bottom:20px;
 
 }
 
 .hero p{
 
-font-size:1.25rem;
+    font-size:1.2rem;
 
-margin-bottom:35px;
+    margin-bottom:35px;
 
 }
 
-/* ================= BUTTON ================= */
+/* ================= BUTTONS ================= */
 
 .btn{
 
-display:inline-block;
+    display:inline-block;
 
-padding:15px 30px;
+    padding:15px 32px;
 
-border:none;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
 
-border-radius:40px;
+    color:white;
 
-background:linear-gradient(90deg,#2563eb,#14b8a6);
+    text-decoration:none;
 
-color:white;
+    border:none;
 
-text-decoration:none;
+    border-radius:40px;
 
-font-weight:600;
+    cursor:pointer;
 
-cursor:pointer;
+    font-weight:600;
 
-transition:.3s;
+    transition:.3s;
 
 }
 
 .btn:hover{
 
-transform:translateY(-4px);
+    transform:translateY(-4px);
 
-box-shadow:0 15px 30px rgba(37,99,235,.3);
+    box-shadow:0 18px 30px rgba(37,99,235,.25);
 
 }
 
 .delete-btn{
 
-background:#dc2626;
+    background:var(--danger);
 
 }
 
@@ -208,25 +243,25 @@ background:#dc2626;
 
 .container{
 
-width:90%;
+    width:90%;
 
-max-width:1200px;
+    max-width:1200px;
 
-margin:auto;
+    margin:auto;
 
-padding:70px 0;
+    padding:70px 0;
 
 }
 
 .container h1{
 
-text-align:center;
+    text-align:center;
 
-font-size:2.8rem;
+    font-size:2.8rem;
 
-margin-bottom:40px;
+    color:var(--primary);
 
-color:#2563eb;
+    margin-bottom:40px;
 
 }
 
@@ -234,39 +269,35 @@ color:#2563eb;
 
 .search-form{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
-gap:18px;
+    gap:18px;
 
-margin-bottom:45px;
+    margin-bottom:45px;
 
 }
 
 .search-form input,
-
 .search-form select{
 
-padding:15px;
+    padding:15px;
 
-border:1px solid #e2e8f0;
+    border:1px solid var(--border);
 
-border-radius:12px;
+    border-radius:12px;
 
-font-size:16px;
+    font-size:16px;
 
-outline:none;
-
-transition:.3s;
+    outline:none;
 
 }
 
 .search-form input:focus,
-
 .search-form select:focus{
 
-border-color:#2563eb;
+    border-color:var(--primary);
 
 }
 
@@ -274,126 +305,149 @@ border-color:#2563eb;
 
 .cards{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-gap:25px;
+    gap:25px;
 
 }
 
 .card{
 
-background:white;
+    background:white;
 
-padding:30px;
+    border-radius:18px;
 
-border-radius:18px;
+    box-shadow:var(--shadow);
 
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+    overflow:hidden;
 
-transition:.3s;
+    transition:.3s;
 
 }
 
 .card:hover{
 
-transform:translateY(-8px);
+    transform:translateY(-8px);
 
 }
 
-.card h2{
+.card img{
 
-color:#2563eb;
+    width:100%;
 
-margin-bottom:15px;
+    height:210px;
+
+    object-fit:cover;
+
+}
+
+.card-content{
+
+    padding:25px;
+
+}
+
+.card h2,
+.card h3{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
 
 }
 
 .card p{
 
-margin-bottom:10px;
+    margin-bottom:10px;
+
+    color:#475569;
 
 }
 
-.buttons{
+.card a{
 
-display:flex;
+    display:inline-block;
 
-flex-wrap:wrap;
-
-gap:10px;
-
-margin-top:20px;
+    margin-top:15px;
 
 }
 
-.open-status{
-
-color:#16a34a;
-
-font-weight:700;
-
-}
-
-.closed-status{
-
-color:#dc2626;
-
-font-weight:700;
-
-}
-/* ===============================
-   STATS
-================================= */
+/* ================= STATS ================= */
 
 .stats{
+
     width:90%;
+
     max-width:1200px;
+
     margin:80px auto;
+
     display:grid;
+
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
     gap:25px;
+
 }
 
 .stat{
+
     background:white;
+
     padding:35px;
+
     text-align:center;
+
     border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    box-shadow:var(--shadow);
+
     transition:.3s;
+
 }
 
 .stat:hover{
-    transform:translateY(-10px);
+
+    transform:translateY(-8px);
+
 }
 
 .stat h2{
-    font-size:2.7rem;
-    color:#2563eb;
+
+    color:var(--primary);
+
+    font-size:2.8rem;
+
     margin-bottom:10px;
+
 }
 
 .stat p{
-    color:#64748b;
-}
 
-/* ===============================
-   FORMS
-================================= */
+    color:var(--gray);
+
+}
+/* ==========================================
+   ScholarshipBridge v3.0
+   PART 2
+========================================== */
+
+/* ================= FORMS ================= */
 
 form{
-    background:white;
+    background:var(--white);
     padding:35px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
 }
 
 form label{
     display:block;
     margin-bottom:8px;
     font-weight:600;
+    color:var(--dark);
 }
 
 form input,
@@ -404,7 +458,7 @@ form textarea{
     padding:14px;
     margin-bottom:20px;
 
-    border:1px solid #e2e8f0;
+    border:1px solid var(--border);
 
     border-radius:12px;
 
@@ -418,7 +472,7 @@ form input:focus,
 form select:focus,
 form textarea:focus{
 
-    border-color:#2563eb;
+    border-color:var(--primary);
 
     outline:none;
 
@@ -426,9 +480,7 @@ form textarea:focus{
 
 }
 
-/* ===============================
-   LOGIN PAGE
-================================= */
+/* ================= LOGIN PAGE ================= */
 
 .login-page{
 
@@ -440,10 +492,10 @@ form textarea:focus{
 
     align-items:center;
 
+    padding:40px;
+
     background:
-
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-
+    linear-gradient(rgba(15,23,42,.70),rgba(15,23,42,.70)),
     url("images/hero1.jpg");
 
     background-size:cover;
@@ -452,81 +504,98 @@ form textarea:focus{
 
 }
 
-.login-page form{
+.login-box{
 
-    width:420px;
+    width:100%;
+    max-width:450px;
 
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.95);
 
     backdrop-filter:blur(12px);
 
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
 }
 
-/* ===============================
-   ABOUT BANNER
-================================= */
-
-.about-banner{
-
-    min-height:60vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
+.login-header{
 
     text-align:center;
 
-    color:white;
-
-    background:
-
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-
-    url("images/hero3.jpg");
-
-    background-size:cover;
-
-    background-position:center;
+    margin-bottom:30px;
 
 }
 
-/* ===============================
-   ADMIN BANNER
-================================= */
+.login-header i{
 
-.admin-banner{
+    font-size:60px;
 
-    min-height:45vh;
+    color:var(--primary);
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:white;
-
-    background:
-
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-
-    url("images/hero5.jpg");
-
-    background-size:cover;
-
-    background-position:center;
+    margin-bottom:15px;
 
 }
 
-/* ===============================
-   FOOTER
-================================= */
+.login-header h1{
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+.login-header p{
+
+    color:var(--gray);
+
+}
+
+/* ================= FLASH MESSAGES ================= */
+
+.flash{
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.flash.success{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+}
+
+.flash.danger{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+}
+
+.flash.warning{
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+}
+
+/* ================= FOOTER ================= */
 
 footer{
 
-    background:#0f172a;
+    background:var(--dark);
 
     color:white;
 
@@ -540,20 +609,20 @@ footer{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
-    gap:35px;
+    gap:40px;
 
 }
 
-.footer-container h3,
-.footer-container h4{
+.footer-section h3,
+.footer-section h4{
 
     margin-bottom:18px;
 
 }
 
-.footer-container p{
+.footer-section p{
 
     color:#cbd5e1;
 
@@ -561,7 +630,7 @@ footer{
 
 }
 
-.footer-container a{
+.footer-section a{
 
     display:block;
 
@@ -575,9 +644,11 @@ footer{
 
 }
 
-.footer-container a:hover{
+.footer-section a:hover{
 
     color:white;
+
+    padding-left:6px;
 
 }
 
@@ -599,35 +670,52 @@ footer hr{
 
     color:#94a3b8;
 
+    font-size:15px;
+
 }
 
-/* ===============================
-   ANIMATIONS
-================================= */
+/* ================= ABOUT & ADMIN BANNERS ================= */
+
+.about-banner,
+.admin-banner{
+
+    min-height:45vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+    linear-gradient(rgba(15,23,42,.60),rgba(15,23,42,.60)),
+    url("images/hero3.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+/* ================= ANIMATIONS ================= */
 
 .card,
 .stat,
-.btn{
+.btn,
+.nav-links a,
+.register-btn,
+.student-btn,
+.admin-btn{
 
     transition:all .3s ease;
 
 }
 
-.card:hover{
-
-    box-shadow:0 18px 35px rgba(0,0,0,.15);
-
-}
-
-.btn:hover{
-
-    transform:translateY(-4px);
-
-}
-
-/* ===============================
-   MOBILE RESPONSIVE
-================================= */
+/* ================= RESPONSIVE ================= */
 
 @media (max-width:992px){
 
@@ -639,7 +727,7 @@ font-size:3rem;
 
 .hero p{
 
-font-size:1.15rem;
+font-size:1.1rem;
 
 }
 
@@ -651,9 +739,9 @@ font-size:1.15rem;
 
 flex-direction:column;
 
-gap:20px;
-
 padding:20px;
+
+gap:20px;
 
 }
 
@@ -661,7 +749,27 @@ padding:20px;
 
 flex-direction:column;
 
+align-items:center;
+
 gap:15px;
+
+}
+
+.nav-buttons{
+
+flex-direction:column;
+
+width:100%;
+
+}
+
+.register-btn,
+.student-btn,
+.admin-btn{
+
+width:100%;
+
+text-align:center;
 
 }
 
@@ -693,21 +801,13 @@ grid-template-columns:1fr;
 
 .stats{
 
-grid-template-columns:1fr 1fr;
+grid-template-columns:1fr;
 
 }
 
-.buttons{
+.container{
 
-flex-direction:column;
-
-}
-
-.btn{
-
-width:100%;
-
-text-align:center;
+width:95%;
 
 }
 
@@ -717,15 +817,15 @@ font-size:2rem;
 
 }
 
+.login-box{
+
+padding:30px;
+
+}
+
 }
 
 @media (max-width:500px){
-
-.stats{
-
-grid-template-columns:1fr;
-
-}
 
 .hero h1{
 
@@ -739,379 +839,16 @@ font-size:.95rem;
 
 }
 
-.container{
+.logo a{
 
-width:95%;
+font-size:24px;
 
-}
-
-.login-page form{
-
-width:100%;
-
-}
-
-}
-/* ===============================
-   LOGIN BOX
-================================= */
-
-.login-box{
-
-    width:100%;
-    max-width:450px;
-
-    background:rgba(255,255,255,.95);
-
-    backdrop-filter:blur(12px);
-
-    border-radius:20px;
-
-    padding:40px;
-
-    box-shadow:0 20px 45px rgba(0,0,0,.25);
-
-}
-
-.login-header{
-
-    text-align:center;
-
-    margin-bottom:30px;
-
-}
-
-.login-header i{
-
-    font-size:55px;
-
-    color:#2563eb;
-
-    margin-bottom:15px;
-
-}
-
-.login-header h1{
-
-    color:#2563eb;
-
-    margin-bottom:10px;
-
-    font-size:2rem;
-
-}
-
-.login-header p{
-
-    color:#64748b;
-
-}
-
-.login-box label{
-
-    font-weight:600;
-
-    color:#0f172a;
-
-}
-
-.login-box label i{
-
-    color:#2563eb;
-
-    margin-right:8px;
-
-}
-
-.login-box input{
-
-    margin-top:8px;
-
-}
-
-.login-box .btn{
-
-    width:100%;
-
-    margin-top:10px;
-
-}
-.flash{
-
-padding:15px;
-
-margin-bottom:20px;
-
-border-radius:10px;
-
-font-weight:600;
-
-}
-
-.flash.success{
-
-background:#dcfce7;
-
-color:#166534;
-
-}
-
-.flash.danger{
-
-background:#fee2e2;
-
-color:#991b1b;
-
-}
-.scholarships{
-    padding:60px 10%;
-    background:#f5f7fa;
-    text-align:center;
-}
-
-.scholarships h2{
-    font-size:2.2rem;
-    margin-bottom:40px;
-}
-
-.scholarship-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.card h3{
-    margin:20px 0 10px;
-}
-
-.card p{
-    padding:0 20px;
-    color:#555;
-}
-
-.card a{
-    display:inline-block;
-    margin:20px;
-    padding:10px 20px;
-    background:#0077ff;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-}
-
-.card a:hover{
-    background:#005ecc;
-}
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:white;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#0077ff;
-}
-
-.nav-links{
-    display:flex;
-    list-style:none;
-    gap:30px;
 }
 
 .nav-links a{
-    text-decoration:none;
-    color:#333;
-    font-weight:500;
+
+font-size:16px;
+
 }
 
-.nav-links a:hover{
-    color:#0077ff;
-}
-
-.login-btn{
-    background:#0077ff;
-    color:white;
-    padding:10px 20px;
-    border-radius:8px;
-    text-decoration:none;
-}
-
-.login-btn:hover{
-    background:#005ecc;
-}
-.search-section{
-    padding:60px 8%;
-    text-align:center;
-}
-
-.search-form{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:30px;
-}
-
-.search-form input,
-.search-form select{
-    padding:14px;
-    width:250px;
-    border:1px solid #ccc;
-    border-radius:8px;
-}
-
-.search-form button{
-    padding:14px 30px;
-    background:#0077ff;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-}
-.featured{
-    padding:60px 8%;
-}
-
-.featured h2{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#fff;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card h3{
-    color:#0077ff;
-}
-
-.card a{
-    display:inline-block;
-    margin-top:15px;
-    text-decoration:none;
-    color:white;
-    background:#0077ff;
-    padding:10px 15px;
-    border-radius:8px;
-}
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 60px;
-    background:#fff;
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:32px;
-    font-weight:700;
-    color:#2563eb;
-}
-
-.logo i{
-    color:#f59e0b;
-}
-
-.nav-links{
-    display:flex;
-    gap:35px;
-    list-style:none;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:#333;
-    font-weight:600;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:#2563eb;
-}
-
-.nav-buttons{
-    display:flex;
-    gap:12px;
-}
-
-.register-btn,
-.student-btn,
-.admin-btn{
-    padding:12px 22px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
-}
-
-.register-btn{
-    background:#16a34a;
-    color:white;
-}
-
-.student-btn{
-    background:#2563eb;
-    color:white;
-}
-
-.admin-btn{
-    border:2px solid #2563eb;
-    color:#2563eb;
-}
-
-.register-btn:hover,
-.student-btn:hover{
-    transform:translateY(-2px);
-}
-
-.admin-btn:hover{
-    background:#2563eb;
-    color:white;
 }

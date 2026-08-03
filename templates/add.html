@@ -1,72 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Scholarship - ScholarshipBridge</title>
+{% block title %}Add Scholarship{% endblock %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% block content %}
 
-<body>
+<section class="container">
 
-<nav>
-    <h2>🎓 ScholarshipBridge</h2>
-
-    <div>
-        <a href="/">Home</a>
-        <a href="/scholarships">Scholarships</a>
-        <a href="/admin">Admin</a>
-    </div>
-</nav>
-
-<div class="container">
-
-    <h1>Add Scholarship</h1>
+    <h1>Add New Scholarship</h1>
 
     <form method="POST">
 
-        <label>Scholarship Name</label><br>
-        <input type="text" name="name" required><br><br>
+        <label>🎓 Scholarship Name</label>
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter scholarship name"
+            required>
 
-        <label>Country</label><br>
-        <input type="text" name="country" required><br><br>
+        <label>🌍 Country</label>
+        <input
+            type="text"
+            name="country"
+            placeholder="e.g. Canada"
+            required>
 
-        <label>Field of Study</label><br>
-        <input type="text" name="field" required><br><br>
+        <label>🏫 University</label>
+        <input
+            type="text"
+            name="university"
+            placeholder="e.g. University of Toronto">
 
-        <label>Degree Level</label><br>
-        <input type="text" name="degree" required><br><br>
+        <label>💻 Field of Study</label>
+        <input
+            type="text"
+            name="field"
+            placeholder="e.g. Computer Science"
+            required>
 
-        <label>Application Deadline</label><br>
-        <input type="text"
-               name="deadline"
-               placeholder="Example: 31 December 2026"
-               required><br><br>
+        <label>🎓 Degree Level</label>
+        <select name="degree" required>
 
-        <label>Status</label><br>
+            <option value="">Select Degree</option>
+            <option>Bachelor</option>
+            <option>Master</option>
+            <option>PhD</option>
 
-        <select name="status" required>
-            <option value="Open">🟢 Open</option>
-            <option value="Closed">🔴 Closed</option>
         </select>
 
-        <br><br>
+        <label>💰 Funding</label>
+        <select name="funding">
+
+            <option>Fully Funded</option>
+            <option>Partially Funded</option>
+            <option>Tuition Only</option>
+
+        </select>
+
+        <label>📅 Application Deadline</label>
+        <input
+            type="date"
+            name="deadline"
+            required>
+
+        <label>📄 Description</label>
+        <textarea
+            name="description"
+            rows="5"
+            placeholder="Brief scholarship description"></textarea>
+
+        <label>🔗 Official Application Link</label>
+        <input
+            type="url"
+            name="link"
+            placeholder="https://example.com">
+
+        <label>📌 Status</label>
+
+        <select name="status" required>
+
+            <option value="Open">🟢 Open</option>
+            <option value="Closed">🔴 Closed</option>
+
+        </select>
+
+        <br>
 
         <button type="submit" class="btn">
-            Add Scholarship
+
+            ➕ Add Scholarship
+
         </button>
+
+        <a href="{{ url_for('admin') }}" class="btn">
+
+            ← Back to Dashboard
+
+        </a>
 
     </form>
 
-    <br>
+</section>
 
-    <a href="/admin" class="btn">
-        ← Back to Admin
-    </a>
-
-</div>
-
-</body>
-</html>
+{% endblock %}

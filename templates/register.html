@@ -2,11 +2,13 @@
 
 {% block title %}Student Registration{% endblock %}
 
+
 {% block content %}
 
 <section class="login-page">
 
     <div class="login-box">
+
 
         <div class="login-header">
 
@@ -18,36 +20,176 @@
 
         </div>
 
+
+
         <form method="POST">
 
-            <label><i class="fas fa-user"></i> Full Name</label>
-            <input type="text" name="fullname" placeholder="Enter your full name" required>
 
-            <label><i class="fas fa-envelope"></i> Email</label>
-            <input type="email" name="email" placeholder="Enter your email" required>
+            <label>
+                <i class="fas fa-user"></i>
+                Full Name
+            </label>
 
-            <label><i class="fas fa-lock"></i> Password</label>
-            <input type="password" name="password" placeholder="Create a password" required>
+            <input 
+                type="text" 
+                name="fullname"
+                placeholder="Enter your full name"
+                required
+            >
 
-            <label><i class="fas fa-lock"></i> Confirm Password</label>
-            <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+
+
+            <label>
+                <i class="fas fa-envelope"></i>
+                Email
+            </label>
+
+            <input 
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+
+            <label>
+                <i class="fas fa-globe"></i>
+                Country
+            </label>
+
+            <input 
+                type="text"
+                name="country"
+                placeholder="Enter your country"
+                required
+            >
+
+
+
+            <label>
+                <i class="fas fa-graduation-cap"></i>
+                Education Level
+            </label>
+
+            <select name="education" required>
+
+                <option value="">
+                    Select education level
+                </option>
+
+                <option value="Undergraduate">
+                    Undergraduate
+                </option>
+
+                <option value="Masters">
+                    Masters
+                </option>
+
+                <option value="PhD">
+                    PhD
+                </option>
+
+            </select>
+
+
+
+
+            <label>
+                <i class="fas fa-lock"></i>
+                Password
+            </label>
+
+            <input 
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create password"
+                required
+            >
+
+
+
+
+            <label>
+                <i class="fas fa-lock"></i>
+                Confirm Password
+            </label>
+
+
+            <input 
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                placeholder="Confirm password"
+                required
+            >
+
+
+
 
             <button type="submit" class="btn">
+
                 <i class="fas fa-user-plus"></i>
+
                 Register
+
             </button>
+
+
 
         </form>
 
+
+
         <br>
 
+
+
         <p style="text-align:center;">
+
             Already have an account?
-            <a href="{{ url_for('student_login') }}">Login here</a>
+
+            <a href="{{ url_for('student_login') }}">
+                Login here
+            </a>
+
         </p>
+
+
 
     </div>
 
+
 </section>
+
+
+
+
+<script>
+
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirm_password");
+
+
+confirmPassword.addEventListener("input", function(){
+
+    if(password.value !== confirmPassword.value){
+
+        confirmPassword.setCustomValidity(
+            "Passwords do not match"
+        );
+
+    }else{
+
+        confirmPassword.setCustomValidity("");
+
+    }
+
+});
+
+
+</script>
+
 
 {% endblock %}

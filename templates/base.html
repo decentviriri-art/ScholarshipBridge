@@ -25,84 +25,83 @@
 
 <header>
 
-<header class="navbar">
+    <nav class="navbar">
 
-    <div class="logo">
-        <a href="{{ url_for('home') }}">
-            🎓 ScholarshipBridge
-        </a>
-    </div>
+        <div class="logo">
+            <a href="{{ url_for('home') }}">
+                <i class="fas fa-graduation-cap"></i>
+                ScholarshipBridge
+            </a>
+        </div>
 
-    <nav>
         <ul class="nav-links">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('scholarships') }}">Scholarships</a></li>
-            <li><a href="{{ url_for('countries') }}">Countries</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+            <li>
+                <a href="{{ url_for('home') }}">Home</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('scholarships') }}">Scholarships</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('countries') }}">Countries</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('about') }}">About</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('contact') }}">Contact</a>
+            </li>
+
         </ul>
+
+        <div class="nav-buttons">
+
+            <a href="{{ url_for('register') }}" class="register-btn">
+                Register
+            </a>
+
+            <a href="{{ url_for('student_login') }}" class="student-btn">
+                Student Login
+            </a>
+
+            <a href="{{ url_for('login') }}" class="admin-btn">
+                Admin
+            </a>
+
+        </div>
+
     </nav>
-<nav class="navbar">
-
-    <div class="logo">
-        <i class="fas fa-graduation-cap"></i>
-        <span>ScholarshipBridge</span>
-    </div>
-
-    <ul class="nav-links">
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('scholarships') }}">Scholarships</a></li>
-        <li><a href="{{ url_for('countries') }}">Countries</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-    </ul>
-
-    <div class="nav-buttons">
-
-        <a href="{{ url_for('register') }}" class="register-btn">
-            Register
-        </a>
-
-        <a href="{{ url_for('student_login') }}" class="student-btn">
-            Student Login
-        </a>
-
-        <a href="{{ url_for('login') }}" class="admin-btn">
-            Admin
-        </a>
-
-    </div>
-
-</nav>
 
 </header>
 
-</header>
-
-<!-- ================= MAIN ================= -->
+<!-- ================= FLASH MESSAGES ================= -->
 
 <main>
+
     {% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
+    {% if messages %}
 
-<div class="container">
+    <div class="container">
 
-{% for category, message in messages %}
+        {% for category, message in messages %}
 
-<div class="flash {{ category }}">
-    {{ message }}
-</div>
+        <div class="flash {{ category }}">
+            {{ message }}
+        </div>
 
-{% endfor %}
+        {% endfor %}
 
-</div>
+    </div>
 
-{% endif %}
-{% endwith %}
+    {% endif %}
+    {% endwith %}
 
-{% block content %}
-
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
 </main>
 
@@ -110,68 +109,65 @@
 
 <footer>
 
-<div class="footer-container">
+    <div class="footer-container">
 
-<div>
+        <div class="footer-section">
 
-<h3>
-<i class="fas fa-graduation-cap"></i>
-ScholarshipBridge
-</h3>
+            <h3>
+                <i class="fas fa-graduation-cap"></i>
+                ScholarshipBridge
+            </h3>
 
-<p>
-Helping students discover verified scholarships from universities around the world.
-</p>
+            <p>
+                Helping students discover verified scholarships from universities around the world.
+            </p>
 
-</div>
+        </div>
 
-<div>
+        <div class="footer-section">
 
-<h4>Quick Links</h4>
+            <h4>Quick Links</h4>
 
-<a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('scholarships') }}">Scholarships</a>
+            <a href="{{ url_for('countries') }}">Countries</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('apply') }}">Apply</a>
 
-<a href="{{ url_for('scholarships') }}">Scholarships</a>
+        </div>
 
-<a href="{{ url_for('about') }}">About</a>
+        <div class="footer-section">
 
-<a href="{{ url_for('apply') }}">Apply</a>
+            <h4>Contact</h4>
 
-</div>
+            <p>
+                <i class="fas fa-envelope"></i>
+                decent@scholarshipbridge.com
+            </p>
 
-<div>
+            <p>
+                <i class="fas fa-globe"></i>
+                Worldwide Access
+            </p>
 
-<h4>Contact</h4>
+            <p>
+                <i class="fas fa-clock"></i>
+                Available 24/7
+            </p>
 
-<p>
-<i class="fas fa-envelope"></i>
-decent@scholarshipbridge.com
-</p>
+        </div>
 
-<p>
-<i class="fas fa-globe"></i>
-Worldwide Access
-</p>
+    </div>
 
-<p>
-<i class="fas fa-clock"></i>
-Available 24/7
-</p>
+    <hr>
 
-</div>
-
-</div>
-
-<hr>
-
-<p class="copyright">
-
-© 2026 ScholarshipBridge • Designed with ❤️ using Flask
-
-</p>
+    <p class="copyright">
+        © 2026 ScholarshipBridge. All Rights Reserved.<br>
+        Built by D.Viriri | Empowering Students Worldwide 🌍
+    </p>
 
 </footer>
 
 </body>
-
 </html>

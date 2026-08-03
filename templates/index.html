@@ -4,17 +4,17 @@
 
 {% block content %}
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
     <div class="hero-text">
 
-        <h1>Find Your Dream Scholarship</h1>
+        <h1>Find Fully Funded Scholarships Worldwide</h1>
 
         <p>
-            Discover fully funded scholarships from top universities around the world.
-            Start your academic journey today.
+            Search thousands of verified scholarships from top universities around the world.
+            Filter by country, degree, or field of study and begin your academic journey today.
         </p>
 
         <form action="{{ url_for('scholarships') }}" method="GET" class="hero-search">
@@ -34,103 +34,14 @@
         <br>
 
         <a href="{{ url_for('scholarships') }}" class="btn secondary-btn">
-            Explore Scholarships
+            Browse Scholarships
         </a>
 
     </div>
 
 </section>
-<section class="search-section">
 
-    <h2>Find Scholarships</h2>
-
-    <form class="search-form">
-
-        <input type="text" placeholder="Search scholarships...">
-
-        <select>
-            <option>Country</option>
-            <option>Canada</option>
-            <option>USA</option>
-            <option>Germany</option>
-            <option>Australia</option>
-        </select>
-
-        <select>
-            <option>Degree</option>
-            <option>Bachelor</option>
-            <option>Master</option>
-            <option>PhD</option>
-        </select>
-
-        <button type="submit">Search</button>
-
-    </form>
-
-</section>
-<section class="featured">
-
-    <h2>Featured Scholarships</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>DAAD Scholarship</h3>
-            <p>🇩🇪 Germany</p>
-            <p>Master's & PhD</p>
-            <a href="#">View Details</a>
-        </div>
-
-        <div class="card">
-            <h3>Chevening Scholarship</h3>
-            <p>🇬🇧 United Kingdom</p>
-            <p>Master's</p>
-            <a href="#">View Details</a>
-        </div>
-
-        <div class="card">
-            <h3>MEXT Scholarship</h3>
-            <p>🇯🇵 Japan</p>
-            <p>Bachelor's, Master's & PhD</p>
-            <a href="#">View Details</a>
-        </div>
-
-    </div>
-
-</section>
-<!-- SCHOLARSHIPS SECTION -->
-<section class="scholarships">
-
-    <h2>Latest Scholarships</h2>
-
-    <div class="scholarship-container">
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='images/hero1.jpg.jpg') }}" alt="Oxford">
-            <h3>Oxford University</h3>
-            <p>Fully funded Master's and PhD scholarships.</p>
-            <a href="#">Learn More</a>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='images/hero2.jpg.jpg') }}" alt="Harvard">
-            <h3>Harvard University</h3>
-            <p>Scholarships for international students.</p>
-            <a href="#">Learn More</a>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='images/hero3.jpg.jpg') }}" alt="DAAD">
-            <h3>DAAD Germany</h3>
-            <p>Fully funded postgraduate scholarships.</p>
-            <a href="#">Learn More</a>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 
 <section class="stats">
 
@@ -156,6 +67,8 @@
 
 </section>
 
+<!-- ================= FEATURED SCHOLARSHIPS ================= -->
+
 <section class="container">
 
     <h1>Featured Scholarships</h1>
@@ -166,17 +79,29 @@
 
         <div class="card">
 
-            <h2>{{ scholarship.name }}</h2>
+            <div class="card-content">
 
-            <p><strong>Country:</strong> {{ scholarship.country }}</p>
+                <h2>{{ scholarship.name }}</h2>
 
-            <p><strong>Degree:</strong> {{ scholarship.degree }}</p>
+                <p>🌍 <strong>Country:</strong> {{ scholarship.country }}</p>
 
-            <p><strong>Deadline:</strong> {{ scholarship.deadline }}</p>
+                <p>🎓 <strong>Degree:</strong> {{ scholarship.degree }}</p>
 
-            <a href="{{ url_for('details', index=loop.index0) }}" class="btn">
-                View Details
-            </a>
+                <p>📅 <strong>Deadline:</strong> {{ scholarship.deadline }}</p>
+
+                {% if scholarship.status == "Open" %}
+                    <p class="open-status">🟢 Open</p>
+                {% else %}
+                    <p class="closed-status">🔴 Closed</p>
+                {% endif %}
+
+                <br>
+
+                <a href="{{ url_for('details', index=loop.index0) }}" class="btn">
+                    View Details
+                </a>
+
+            </div>
 
         </div>
 
@@ -185,8 +110,7 @@
     </div>
 
 </section>
-
-<!-- FEATURES -->
+<!-- ================= WHY CHOOSE US ================= -->
 
 <section class="container">
 
@@ -196,34 +120,46 @@
 
         <div class="card">
 
-            <h2>🌍 Global Opportunities</h2>
+            <div class="card-content">
 
-            <p>
-                Browse scholarships from universities across Europe,
-                North America, Asia, Africa, and Australia.
-            </p>
+                <h2>🌍 Global Opportunities</h2>
 
-        </div>
+                <p>
+                    Browse scholarships from universities across Europe,
+                    North America, Asia, Africa, and Australia.
+                </p>
 
-        <div class="card">
-
-            <h2>🎓 Verified Scholarships</h2>
-
-            <p>
-                We organize scholarship information to help students
-                find trusted opportunities more easily.
-            </p>
+            </div>
 
         </div>
 
         <div class="card">
 
-            <h2>⚡ Easy Search</h2>
+            <div class="card-content">
 
-            <p>
-                Filter scholarships by country, field of study,
-                degree level, and application status.
-            </p>
+                <h2>🎓 Verified Scholarships</h2>
+
+                <p>
+                    Discover trusted scholarships with accurate information,
+                    application deadlines, and eligibility requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h2>⚡ Easy Search</h2>
+
+                <p>
+                    Filter scholarships by country, degree level,
+                    field of study, and application status.
+                </p>
+
+            </div>
 
         </div>
 
@@ -231,7 +167,7 @@
 
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- ================= HOW IT WORKS ================= -->
 
 <section class="container">
 
@@ -241,31 +177,43 @@
 
         <div class="card">
 
-            <h2>1️⃣ Search</h2>
+            <div class="card-content">
 
-            <p>
-                Search scholarships using powerful filters.
-            </p>
+                <h2>1️⃣ Search</h2>
 
-        </div>
+                <p>
+                    Search scholarships using our powerful search filters.
+                </p>
 
-        <div class="card">
-
-            <h2>2️⃣ Explore</h2>
-
-            <p>
-                Read scholarship details, eligibility, and deadlines.
-            </p>
+            </div>
 
         </div>
 
         <div class="card">
 
-            <h2>3️⃣ Apply</h2>
+            <div class="card-content">
 
-            <p>
-                Submit your application before the deadline.
-            </p>
+                <h2>2️⃣ Explore</h2>
+
+                <p>
+                    Read scholarship details, eligibility, funding, and deadlines.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h2>3️⃣ Apply</h2>
+
+                <p>
+                    Apply before the deadline and take the next step toward your education.
+                </p>
+
+            </div>
 
         </div>
 
@@ -273,20 +221,80 @@
 
 </section>
 
-<!-- CALL TO ACTION -->
+<!-- ================= TRUST SECTION ================= -->
 
-<section class="hero" style="min-height:45vh;">
+<section class="container">
+
+    <h1>Trusted by Students Worldwide</h1>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h2>✔ Verified Scholarships</h2>
+
+                <p>
+                    We organize scholarship opportunities from trusted universities
+                    and institutions around the world.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h2>✔ Updated Regularly</h2>
+
+                <p>
+                    New scholarships are added frequently to help students
+                    find the latest opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h2>✔ Free for Students</h2>
+
+                <p>
+                    ScholarshipBridge is designed to help students access
+                    scholarship information without any cost.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CALL TO ACTION ================= -->
+
+<section class="hero" style="min-height:50vh;">
 
     <div class="hero-text">
 
-        <h1>Start Your Journey Today</h1>
+        <h1>Your Future Starts Here</h1>
 
         <p>
-            Thousands of scholarships are waiting for ambitious students like you.
+            Join thousands of students exploring scholarship opportunities from
+            leading universities across the globe.
         </p>
 
-        <a href="/scholarships" class="btn">
-            Find Scholarships
+        <a href="{{ url_for('scholarships') }}" class="btn">
+
+            Browse Scholarships
+
         </a>
 
     </div>

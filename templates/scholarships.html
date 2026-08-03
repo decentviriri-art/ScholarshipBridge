@@ -1,36 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %}
-Scholarships
-{% endblock %}
+{% block title %}Scholarships{% endblock %}
 
 {% block content %}
 
-<div class="container">
+<section class="container">
 
     <h1>Available Scholarships</h1>
 
-    <form method="GET" action="/scholarships" class="search-form">
+    <!-- Search Form -->
+
+    <form method="GET" action="{{ url_for('scholarships') }}" class="search-form">
 
         <input
             type="text"
             name="country"
             placeholder="🌍 Country"
-            value="{{ request.args.get('country','') }}">
+            value="{{ request.args.get('country', '') }}">
 
         <input
             type="text"
             name="field"
-            placeholder="💻 Field"
-            value="{{ request.args.get('field','') }}">
+            placeholder="💻 Field of Study"
+            value="{{ request.args.get('field', '') }}">
 
         <input
             type="text"
             name="degree"
             placeholder="🎓 Degree"
-            value="{{ request.args.get('degree','') }}">
+            value="{{ request.args.get('degree', '') }}">
 
         <select name="status">
+
             <option value="">All Status</option>
 
             <option value="Open"
@@ -53,62 +54,98 @@ Scholarships
 
     {% if scholarships %}
 
-        <div class="cards">
+    <div class="cards">
 
         {% for scholarship in scholarships %}
 
-            <div class="card">
+        <div class="card">
 
-                <h2>{{ scholarship.name }}</h2>
+            <h2>{{ scholarship.name }}</h2>
 
-                <p>🌍 <strong>Country:</strong> {{ scholarship.country }}</p>
+            <hr><br>
 
-                <p>💻 <strong>Field:</strong> {{ scholarship.field }}</p>
+            <p>🌍 <strong>Country:</strong> {{ scholarship.country }}</p>
 
-                <p>🎓 <strong>Degree:</strong> {{ scholarship.degree }}</p>
+            <p>💻 <strong>Field:</strong> {{ scholarship.field }}</p>
 
-                <p>📅 <strong>Deadline:</strong> {{ scholarship.deadline }}</p>
+            <p>🎓 <strong>Degree:</strong> {{ scholarship.degree }}</p>
 
-                <p>
+            <p>💰 <strong>Funding:</strong> Fully Funded</p>
 
-                    <strong>Status:</strong>
+            <p>📅 <strong>Deadline:</strong> {{ scholarship.deadline }}</p>
 
-                    {% if scholarship.status == "Open" %}
-                        <span class="open-status">🟢 Open</span>
-                    {% else %}
-                        <span class="closed-status">🔴 Closed</span>
-                    {% endif %}
+            <p>
 
-                </p>
+                <strong>Application Status:</strong>
 
-                <div class="buttons">
+                {% if scholarship.status == "Open" %}
 
-                    <a href="{{ url_for('details', index=loop.index0) }}" class="btn">
-                        View Details
-                    </a>
+                    <span class="open-status">🟢 Open</span>
 
-                    <a href="/apply" class="btn">
-                        Apply
-                    </a>
+                {% else %}
 
-                    <a href="{{ url_for('delete', index=loop.index0) }}" class="btn delete-btn">
-                        Delete
-                    </a>
+                    <span class="closed-status">🔴 Closed</span>
 
-                </div>
+                {% endif %}
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="{{ url_for('details', index=loop.index0) }}" class="btn">
+                    View Scholarship
+                </a>
+
+                <a href="{{ url_for('apply') }}" class="btn">
+                    Apply Now
+                </a>
+
+                {% if session.get("admin") %}
+
+                <a href="{{ url_for('delete', index=loop.index0) }}"
+                   class="btn delete-btn"
+                   onclick="return confirm('Are you sure you want to delete this scholarship?');">
+
+                    Delete
+
+                </a>
+
+                {% endif %}
 
             </div>
 
+        </div>
+
         {% endfor %}
 
-        </div>
+    </div>
 
     {% else %}
 
-        <h2>No scholarships found.</h2>
+    <div style="text-align:center; padding:60px;">
+
+        <h2>🔍 No Scholarships Found</h2>
+
+        <p>
+
+            No scholarships matched your search criteria.
+
+            Try changing your filters.
+
+        </p>
+
+        <br>
+
+        <a href="{{ url_for('scholarships') }}" class="btn">
+
+            Show All Scholarships
+
+        </a>
+
+    </div>
 
     {% endif %}
 
-</div>
+</section>
 
 {% endblock %}

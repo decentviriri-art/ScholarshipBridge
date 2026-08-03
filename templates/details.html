@@ -1,37 +1,126 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ scholarship.name }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body>
+{% block title %}{{ scholarship.name }}{% endblock %}
 
-<nav>
-    <h2>🎓 ScholarshipBridge</h2>
-</nav>
+{% block content %}
 
-<div class="container">
+<section class="container">
 
-<h1>{{ scholarship.name }}</h1>
+    <div class="card" style="max-width:850px; margin:auto;">
 
-<p><b>Country:</b> {{ scholarship.country }}</p>
+        <h1>{{ scholarship.name }}</h1>
 
-<p><b>Field:</b> {{ scholarship.field }}</p>
+        <hr><br>
 
-<p><b>Degree:</b> {{ scholarship.degree }}</p>
+        <p>
+            🌍 <strong>Country:</strong>
+            {{ scholarship.country }}
+        </p>
 
-<br>
+        <p>
+            🏫 <strong>University:</strong>
+            Top International University
+        </p>
 
-<a href="/scholarships" class="btn">
-Back
-</a>
+        <p>
+            💻 <strong>Field of Study:</strong>
+            {{ scholarship.field }}
+        </p>
 
-<a href="/apply" class="btn">
-Apply Now
-</a>
+        <p>
+            🎓 <strong>Degree:</strong>
+            {{ scholarship.degree }}
+        </p>
 
-</div>
+        <p>
+            💰 <strong>Funding:</strong>
+            Fully Funded
+        </p>
 
-</body>
-</html>
+        <p>
+            📅 <strong>Application Deadline:</strong>
+            {{ scholarship.deadline }}
+        </p>
+
+        <p>
+
+            <strong>Status:</strong>
+
+            {% if scholarship.status == "Open" %}
+
+                <span class="open-status">🟢 Open</span>
+
+            {% else %}
+
+                <span class="closed-status">🔴 Closed</span>
+
+            {% endif %}
+
+        </p>
+
+        <br>
+
+        <h2>📄 Scholarship Description</h2>
+
+        <p>
+
+            This scholarship supports outstanding international students pursuing
+            higher education. It may cover tuition fees, living expenses,
+            accommodation, health insurance, and travel costs depending on the
+            scholarship provider.
+
+        </p>
+
+        <br>
+
+        <h2>✅ Eligibility</h2>
+
+        <ul>
+
+            <li>International students are welcome.</li>
+
+            <li>Good academic performance is required.</li>
+
+            <li>Meet the university admission requirements.</li>
+
+            <li>Submit all required documents before the deadline.</li>
+
+        </ul>
+
+        <br>
+
+        <h2>📑 Required Documents</h2>
+
+        <ul>
+
+            <li>Academic transcripts</li>
+
+            <li>Passport or National ID</li>
+
+            <li>Curriculum Vitae (CV)</li>
+
+            <li>Motivation Letter</li>
+
+            <li>Recommendation Letters (if required)</li>
+
+        </ul>
+
+        <br>
+
+        <div class="buttons">
+
+            <a href="{{ url_for('scholarships') }}" class="btn">
+                ← Back to Scholarships
+            </a>
+
+            <a href="{{ url_for('apply') }}" class="btn">
+                Apply Now
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
