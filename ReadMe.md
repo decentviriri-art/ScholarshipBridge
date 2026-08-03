@@ -1,6 +1,6 @@
-# VhiriEdu
+# ScholarshipBridge
 
-VhiriEdu is a scholarship search application that helps students find fully funded scholarships around the world.
+ScholarshipBridge is a scholarship search application that helps students find fully funded scholarships around the world.
 
 Features
 
