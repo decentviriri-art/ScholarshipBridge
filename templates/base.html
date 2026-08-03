@@ -42,16 +42,21 @@
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
         </ul>
     </nav>
+<div class="nav-buttons">
 
-    <div class="nav-buttons">
-        <a href="{{ url_for('login') }}" class="student-btn">
-            Student Login
-        </a>
+    <a href="{{ url_for('register') }}" class="register-btn">
+        Register
+    </a>
 
-        <a href="{{ url_for('admin') }}" class="admin-btn">
-            Admin
-        </a>
-    </div>
+    <a href="{{ url_for('student_login') }}" class="student-btn">
+        Student Login
+    </a>
+
+    <a href="{{ url_for('login') }}" class="admin-btn">
+        Admin
+    </a>
+
+</div>
 
 </header>
 

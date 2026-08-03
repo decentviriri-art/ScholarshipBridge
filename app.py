@@ -213,6 +213,50 @@ def logout():
     session.clear()
 
     return redirect(url_for("home"))
+@app.route("/register", methods=["GET", "POST"])
+def register():
+
+    if request.method == "POST":
+
+        fullname = request.form["fullname"]
+        email = request.form["email"]
+        password = request.form["password"]
+        confirm_password = request.form["confirm_password"]
+
+        if password != confirm_password:
+            flash("Passwords do not match.", "danger")
+            return redirect(url_for("register"))
+
+        # Database storage will be added later
+
+        flash("Registration successful! Please login.", "success")
+        return redirect(url_for("student_login"))
+
+    return render_template("register.html")
+@app.route("/student-login", methods=["GET", "POST"])
+def student_login():
+
+    if request.method == "POST":
+
+        email = request.form["email"]
+        password = request.form["password"]
+
+        print(email)
+        print(password)
+
+        session["student"] = email
+
+        return redirect(url_for("student_dashboard"))
+
+    return render_template("student_login.html")
+@app.route("/student-dashboard")
+def student_dashboard():
+
+    if "student" not in session:
+        return redirect(url_for("student_login"))
+
+    return render_template("student_dashboard.html")@app.route("/student-dashboard")
+
 
 
 # ===================== RUN APP =====================
