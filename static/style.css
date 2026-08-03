@@ -1034,3 +1034,84 @@ color:#991b1b;
     padding:10px 15px;
     border-radius:8px;
 }
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:32px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+.logo i{
+    color:#f59e0b;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#2563eb;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:12px;
+}
+
+.register-btn,
+.student-btn,
+.admin-btn{
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.register-btn{
+    background:#16a34a;
+    color:white;
+}
+
+.student-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.admin-btn{
+    border:2px solid #2563eb;
+    color:#2563eb;
+}
+
+.register-btn:hover,
+.student-btn:hover{
+    transform:translateY(-2px);
+}
+
+.admin-btn:hover{
+    background:#2563eb;
+    color:white;
+}
